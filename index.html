@@ -171,7 +171,7 @@
             fill="#ff7aa2"/>
     </svg>
 
-    <h1>nirali will you be my valentine?</h1>
+    <h1>Megha will you be my valentine?</h1>
 
     <section class="button-zone" id="zone">
       <button id="yesBtn">Yes</button>
@@ -183,11 +183,7 @@
 
     <section class="result" id="result">
       <h2>YAY! 🎉</h2>
-      <img
-        class="fireworks"
-        src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif"
-        alt="Fireworks"
-      />
+      <div class="tenor-gif-embed" data-postid="26555219" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/cat-cute-happy-jumping-gif-26555219">Cat Cute GIF</a>from <a href="https://tenor.com/search/cat-gifs">Cat GIFs</a></div>
     </section>
   </main>
 
@@ -251,6 +247,20 @@
     }
 
     /* ---------- NO BUTTON RUNS AWAY ---------- */
+    let noClickCount = 0;
+    const noMessages = [
+      "No",
+      "Are you sure?",
+      "Think again!",
+      "Really?",
+      "Don't you love me?",
+      "Please reconsider...",
+      "You're breaking my heart 💔",
+      "Last chance!",
+      "I'm not giving up!",
+      "Fine, I'll keep asking!"
+    ];
+
     function clamp(n, min, max) {
       return Math.max(min, Math.min(max, n));
     }
@@ -287,7 +297,13 @@
       if (d < 140) moveNo(e.clientX, e.clientY);
     });
 
-    noBtn.addEventListener("click", e => e.preventDefault());
+    noBtn.addEventListener("click", e => {
+      e.preventDefault();
+      noClickCount++;
+      if (noClickCount < noMessages.length) {
+        noBtn.textContent = noMessages[noClickCount];
+      }
+    });
 
     /* ---------- YES CLICK ---------- */
     yesBtn.addEventListener("click", () => {
@@ -298,6 +314,7 @@
       fullScreenConfetti();
     });
   </script>
+  <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 </body>
 </html>
 
